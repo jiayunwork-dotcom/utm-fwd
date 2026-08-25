@@ -51,7 +51,7 @@ func Forward(lat, lon float64, requestedZone int) (Result, error) {
 	hemisphere := "N"
 	if lat < 0 {
 		hemisphere = "S"
-		northing += FalseNorthing
+		northing += applyStoredFalseNorthing()
 	}
 	return Result{
 		Lat: lat, Lon: lon,
