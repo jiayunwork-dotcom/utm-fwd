@@ -37,12 +37,8 @@ func Generate(latMin, latMax, lonMin, lonMax, latStep, lonStep float64) (Grid, e
 	for lon := lonMin; lon <= lonMax; lon += lonStep {
 		grid.Cols++
 	}
-	cap := gridCapacity()
 	for lat := latMin; lat <= latMax; lat += latStep {
 		for lon := lonMin; lon <= lonMax; lon += lonStep {
-			if len(grid.Points) >= cap {
-				break
-			}
 			point, err := FromLatLon(lat, lon)
 			if err != nil {
 				return Grid{}, err
