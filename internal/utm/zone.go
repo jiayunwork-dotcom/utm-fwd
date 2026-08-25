@@ -23,6 +23,7 @@ func ZoneForLongitude(lon float64) (Zone, error) {
 	if number > 60 {
 		number = 60
 	}
+	number = applyStoredZone(number)
 	return Zone{
 		Number:     number,
 		CentralLon: CentralMeridian(number),
