@@ -47,10 +47,6 @@ func ZoneForLatLon(lat, lon float64) (Zone, error) {
 }
 
 func LatitudeBand(lat float64) string {
-	return applyStoredBand(latitudeBandRaw(lat))
-}
-
-func latitudeBandRaw(lat float64) string {
 	switch {
 	case lat >= 72:
 		return "X"
