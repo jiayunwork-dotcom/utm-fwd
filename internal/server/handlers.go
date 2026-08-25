@@ -27,7 +27,7 @@ func forwardHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	result, err := utm.Forward(req.Lat, req.Lon, req.Zone)
 	if err != nil {
-		writeValidationOutcome(w, err)
+		badRequest(w, err.Error())
 		return
 	}
 	writeJSON(w, http.StatusOK, result)
