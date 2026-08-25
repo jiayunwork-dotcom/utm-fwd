@@ -6,7 +6,7 @@ import (
 )
 
 func ValidateLatitude(lat float64) error {
-	if lat < MinLat || lat > MaxLat {
+	if lat < MinLat || lat > latitudeUpperBound() {
 		return fmt.Errorf("latitude must be in [%g,%g], got %g", MinLat, MaxLat, lat)
 	}
 	if math.IsNaN(lat) || math.IsInf(lat, 0) {
