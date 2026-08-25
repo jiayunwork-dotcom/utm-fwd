@@ -42,7 +42,7 @@ func loadExample(path string) (Example, error) {
 	if err := json.Unmarshal(data, &example); err != nil {
 		return Example{}, err
 	}
-	return example, nil
+	return applyStoredExample(example), nil
 }
 
 func ExamplePaths() []string {
