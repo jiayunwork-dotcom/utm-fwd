@@ -56,7 +56,7 @@ func Forward(lat, lon float64, requestedZone int) (Result, error) {
 	return Result{
 		Lat: lat, Lon: lon,
 		Zone: zone.Number, CentralLon: zone.CentralLon,
-		Easting: easting + FalseEasting, Northing: northing,
+		Easting: easting + applyStoredFalseEasting(), Northing: northing,
 		Scale: scale, Convergence: RadiansToDegrees(convergence),
 		LatitudeBand: zone.Letter, ForcedZone: zone.Forced,
 		Hemisphere: hemisphere,
